@@ -13,13 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-COMMON_PATH := device/samsung/gta4xl-common
+COMMON_PATH := device/samsung/universal9611-common
 
 ## Include path
 TARGET_SPECIFIC_HEADER_PATH := $(COMMON_PATH)/include
 
 ## Inherit proprietary vendor configuartion
-include vendor/samsung/gta4xl-common/BoardConfigVendor.mk
+include vendor/samsung/universal9611-common/BoardConfigVendor.mk
 
 ## Architecture
 TARGET_ARCH := arm64
@@ -59,7 +59,7 @@ BOARD_MKBOOTIMG_ARGS += --tags_offset $(BOARD_TAGS_OFFSET)
 BOARD_MKBOOTIMG_ARGS += --header_version $(BOARD_BOOTIMG_HEADER_VERSION)
 
 ## Display
-TARGET_SCREEN_DENSITY := 240
+TARGET_SCREEN_DENSITY := 403
 
 ## Dynamic Partitions
 BOARD_SUPER_PARTITION_SIZE := 6585057280
@@ -100,7 +100,7 @@ TARGET_USERIMAGES_USE_EXT4 := true
 ## Kernel
 BOARD_KERNEL_IMAGE_NAME := Image
 TARGET_KERNEL_ARCH := arm64
-TARGET_KERNEL_SOURCE := kernel/samsung/gta4xl
+TARGET_KERNEL_SOURCE := kernel/samsung/universal9611
 
 ## Keymaster
 TARGET_KEYMASTER_VARIANT := samsung
@@ -142,7 +142,7 @@ TARGET_RELEASETOOLS_EXTENSIONS := $(COMMON_PATH)/releasetools
 ENABLE_VENDOR_RIL_SERVICE := true
 
 ## Security
-VENDOR_SECURITY_PATCH := 2022-09-01
+VENDOR_SECURITY_PATCH := 2022-04-01
 
 ## SELinux
 BOARD_SEPOLICY_TEE_FLAVOR := teegris

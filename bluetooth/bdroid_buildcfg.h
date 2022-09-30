@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2020 LineageOS
+ * Copyright (C) 2021 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +19,41 @@
 
 #pragma push_macro("PROPERTY_VALUE_MAX")
 
-#define BTM_DEF_LOCAL_NAME "Galaxy Tab S6 Lite"
+#if !defined(OS_GENERIC)
+#include <cutils/properties.h>
+#include <string.h>
+
+static inline const char* getBTDefaultName()
+{
+    char device[PROPERTY_VALUE_MAX];
+    property_get("ro.product.device", device, "");
+
+    if (!strcmp("a50s", device))
+        return "Galaxy A50s";
+
+    if (!strcmp("a51", device))
+        return "Galaxy A51";
+
+    if (!strcmp("f41", device))
+        return "Galaxy F41";
+
+    if (!strcmp("m21", device))
+        return "Galaxy M21";
+
+    if (!strcmp("m30s", device))
+        return "Galaxy M30s";
+
+    if (!strcmp("m31", device))
+        return "Galaxy M31";
+
+    if (!strcmp("m31s", device))
+        return "Galaxy M31s";
+
+    return "";
+}
+
+#define BTM_DEF_LOCAL_NAME getBTDefaultName()
+#endif /* OS_GENERIC */
 
 /*
  * Toggles support for vendor specific extensions such as RPA offloading,
